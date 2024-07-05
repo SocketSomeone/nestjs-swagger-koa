@@ -1,6 +1,6 @@
 {
 	"name": "nestjs-swagger-koa",
-	"description": "NestJS Swagger Koa Adapter",
+	"description": "NestJS module for generating Swagger documentation for Koa applications",
 	"version": "1.0.1",
 	"scripts": {
 		"build": "rimraf dist && tsc -p tsconfig.build.json",
