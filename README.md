@@ -1,31 +1,53 @@
-# nestjs-open-source-template
+# NestJS Swagger Koa
 
-This is a template for creating a new open source project in NestJS.
+This library is a NestJS module for generating Swagger documentation for Koa applications. Was created due this [issue](
+https://github.com/nestjs/swagger/pull/2351) in the official NestJS Swagger module. Also, this library is based on the official NestJS
+Swagger module and NestJS Koa adapter.
 
-## Features
-* [TypeScript](https://www.typescriptlang.org/)
-* [Jest](https://jestjs.io/)
-* [ESLint](https://eslint.org/)
-* [Prettier](https://prettier.io/)
-* GitHub Actions
-* [Dependabot](https://dependabot.com/)
-* Semantic Release
-* Commitizen
-* Commitlint
-* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
-* [Semantic Versioning](https://semver.org/)
+## Installation
+
+```bash
+$ npm install --save nestjs-swagger-koa @nestjs/swagger nest-koa-adapter
+$ yarn add nestjs-swagger-koa @nestjs/swagger nest-koa-adapter
+$ pnpm add nestjs-swagger-koa @nestjs/swagger nest-koa-adapter
+```
 
 ## Usage
-1. Click the "Use this template" button to create a new repository from this template.
-2. Clone the new repository to your local machine.
-3. Run `npm install` to install dependencies.
-4. Replace name, description, and other fields in `package.json` with your own.
-5. Replace the contents of this file with your own.
-6. Replace name of package at github actions workflow file
 
-## Scripts
-* `npm run build` - Compile TypeScript to JavaScript.
-* `npm run lint` - Lint TypeScript files.
-* `npm run test` - Run tests.
-* `npm run publish:npm` - Publish package to npm.
-* `npm run publish:dev` - Publish package to npm with `dev` tag.
+Usage was not changed from the official NestJS Swagger module. You can find the usage in the official
+documentation [here](https://docs.nestjs.com/openapi/introduction).
+All you need to do is to replace the `@nestjs/swagger` module with `nestjs-swagger-koa` and import the `NestKoaAdapter`
+from `nest-koa-adapter`. Here is an example:
+
+```typescript
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder } from '@nestjs/swagger';
+import { AppModule } from './app.module';
+import { KoaSwaggerModule } from 'nestjs-swagger-koa';
+
+async function bootstrap() {
+    const app = await NestFactory.create(AppModule);
+
+    const config = new DocumentBuilder()
+        .setTitle('Cats example')
+        .setDescription('The cats API description')
+        .setVersion('1.0')
+        .addTag('cats')
+        .build();
+    const document = KoaSwaggerModule.createDocument(app, config);
+    KoaSwaggerModule.setup('api', app, document);
+
+    await app.listen(3000);
+}
+
+bootstrap();
+```
+
+## Stay in touch
+
+* Author - [Alexey Filippov](https://t.me/socketsomeone)
+* Twitter - [@SocketSomeone](https://twitter.com/SocketSomeone)
+
+## License
+
+[MIT](https://github.com/SocketSomeone/nestjs-resilience/blob/master/LICENSE) © [Alexey Filippov](https://github.com/SocketSomeone)
