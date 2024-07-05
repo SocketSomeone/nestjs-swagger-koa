@@ -1,4 +1,6 @@
-# NestJS Swagger Koa
+# NestJS Swagger Koa ![npm](https://img.shields.io/npm/v/nestjs-swagger-koa) ![LICENSE](https://img.shields.io/npm/l/nestjs-swagger-koa) ![Downloads](https://img.shields.io/npm/dm/nestjs-swagger-koa) ![Last Commit](https://img.shields.io/github/last-commit/SocketSomeone/nestjs-swagger-koa)
+
+<img align="right" width="95" height="148" title="NestJS logotype" src="https://nestjs.com/img/logo-small.svg"  alt='Nest.JS logo'/>
 
 This library is a NestJS module for generating Swagger documentation for Koa applications. Was created due this [issue](
 https://github.com/nestjs/swagger/pull/2351) in the official NestJS Swagger module. Also, this library is based on the official NestJS
