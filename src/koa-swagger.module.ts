@@ -197,18 +197,18 @@ export class KoaSwaggerModule extends SwaggerModule {
 		}
 	) {
 		httpAdapter.get(normalizeRelPath(options.jsonDocumentUrl), (req, res) => {
-			res.type('application/json');
+			httpAdapter.setHeader(res, 'Content-Type', 'application/json');
 			const document = getBuiltDocument();
 
 			const documentToSerialize = options.swaggerOptions.patchDocumentOnRequest
 				? options.swaggerOptions.patchDocumentOnRequest(req, res, document)
 				: document;
 
-			res.send(JSON.stringify(documentToSerialize));
+			httpAdapter.reply(res, JSON.stringify(documentToSerialize), 200);
 		});
 
 		httpAdapter.get(normalizeRelPath(options.yamlDocumentUrl), (req, res) => {
-			res.type('text/yaml');
+			httpAdapter.setHeader(res, 'Content-Type', 'text/yaml');
 			const document = getBuiltDocument();
 
 			const documentToSerialize = options.swaggerOptions.patchDocumentOnRequest
@@ -219,7 +219,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 				skipInvalid: true,
 				noRefs: true
 			});
-			res.send(yamlDocument);
+			httpAdapter.reply(res, yamlDocument, 200);
 		});
 	}
 
