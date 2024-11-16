@@ -15,7 +15,7 @@ import { validateGlobalPrefix } from '@nestjs/swagger/dist/utils/validate-global
 import { loadPackage } from '@nestjs/common/utils/load-package.util';
 
 export class KoaSwaggerModule extends SwaggerModule {
-	private static override serveStatic(
+	protected static override serveStatic(
 		finalPath: string,
 		app: INestApplication,
 		customStaticPath?: string
@@ -37,7 +37,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		}
 	}
 
-	private static override serveDocuments(
+	protected static override serveDocuments(
 		finalPath: string,
 		urlLastSubdirectory: string,
 		httpAdapter: HttpServer,
@@ -78,7 +78,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		});
 	}
 
-	private static override serveSwaggerUi(
+	protected static override serveSwaggerUi(
 		finalPath: string,
 		urlLastSubdirectory: string,
 		httpAdapter: HttpServer,
@@ -185,7 +185,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		}
 	}
 
-	private static override serveDefinitions(
+	protected static override serveDefinitions(
 		httpAdapter: HttpServer,
 		getBuiltDocument: () => OpenAPIObject,
 		options: {
