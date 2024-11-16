@@ -14,8 +14,6 @@ import { validatePath } from '@nestjs/swagger/dist/utils/validate-path.util';
 import { validateGlobalPrefix } from '@nestjs/swagger/dist/utils/validate-global-prefix.util';
 import { loadPackage } from '@nestjs/common/utils/load-package.util';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 export class KoaSwaggerModule extends SwaggerModule {
 	private static override serveStatic(
 		finalPath: string,
