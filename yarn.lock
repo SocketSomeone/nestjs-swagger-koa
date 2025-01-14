@@ -1034,6 +1034,24 @@
   dependencies:
     vary "^1.1.2"
 
+"@ladjs/consolidate@^1.0.1":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@ladjs/consolidate/-/consolidate-1.0.4.tgz#31d9604a0e3de6616aeba062c4390c5aa0e5c04d"
+  integrity sha512-ErvBg5acSqns86V/xW7gjqqnBBs6thnpMB0gGc3oM7WHsV8PWrnBtKI6dumHDT3UT/zEOfGzp7dmSFqWoCXKWQ==
+
+"@ladjs/koa-views@9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@ladjs/koa-views/-/koa-views-9.0.0.tgz#22db62988e5040102da94b73133a7f97b381c02a"
+  integrity sha512-/nzUN3HhB7SIxrE4c2MXCLARXMwgoy7xJogyX8lNJo4VBxM6dVQ47iZWjOoHxTBKGFNAv2OTQ0rWI7HYpiv8kg==
+  dependencies:
+    "@ladjs/consolidate" "^1.0.1"
+    debug "^4.3.4"
+    get-paths "0.0.7"
+    koa-send "^5.0.1"
+    mz "^2.7.0"
+    pretty "^2.0.0"
+    resolve-path "^1.4.0"
+
 "@lukeed/csprng@^1.0.0":
   version "1.1.0"
   resolved "https://registry.npmjs.org/@lukeed/csprng/-/csprng-1.1.0.tgz#1e3e4bd05c1cc7a0b2ddbd8a03f39f6e4b5e6cfe"
@@ -1820,11 +1838,6 @@ before-after-hook@^3.0.2:
   resolved "https://registry.yarnpkg.com/before-after-hook/-/before-after-hook-3.0.2.tgz#d5665a5fa8b62294a5aa0a499f933f4a1016195d"
   integrity sha512-Nik3Sc0ncrMK4UUdXQmAnRtzmNQTAAXmXIopizwZ1W1t8QmfJj+zL4OA2I7XPTPW5z5TDqv4hRo/JzouDJnX3A==
 
-bluebird@^3.7.2:
-  version "3.7.2"
-  resolved "https://registry.npmjs.org/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
-  integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
-
 boxen@^8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-8.0.1.tgz#7e9fcbb45e11a2d7e6daa8fdcebfc3242fc19fe3"
@@ -2159,13 +2172,6 @@ consola@^2.15.0:
   version "2.15.3"
   resolved "https://registry.npmjs.org/consola/-/consola-2.15.3.tgz#2e11f98d6a4be71ff72e0bdf07bd23e12cb61550"
   integrity sha512-9vAdYbHj6x2fLKC4+oPH0kFzY/orMZyG2Aj+kNylHxKGJ/Ed4dpNyAQYwJOdqO4zdM7XpVHmyejQDcQHrnuXbw==
-
-consolidate@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.npmjs.org/consolidate/-/consolidate-0.16.0.tgz#a11864768930f2f19431660a65906668f5fbdc16"
-  integrity sha512-Nhl1wzCslqXYTJVDyJCu3ODohy9OfBMB5uD2BiBTzd7w+QY0lBzafkR8y8755yMYHAaMD4NuzbAw03/xzfw+eQ==
-  dependencies:
-    bluebird "^3.7.2"
 
 content-disposition@~0.5.2:
   version "0.5.4"
@@ -4197,7 +4203,7 @@ koa-router@12.0.1:
     methods "^1.1.2"
     path-to-regexp "^6.2.1"
 
-koa-send@^5.0.0:
+koa-send@^5.0.0, koa-send@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/koa-send/-/koa-send-5.0.1.tgz#39dceebfafb395d0d60beaffba3a70b4f543fe79"
   integrity sha512-tmcyQ/wXXuxpDxyNXv5yNNkdAMdFRqwtegBXUaowiQzUKqJehttS0x2j0eOZDQAyloAth5w6wwBImnFzkUz3pQ==
@@ -4214,23 +4220,10 @@ koa-static@5.0.0:
     debug "^3.1.0"
     koa-send "^5.0.0"
 
-koa-views@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.npmjs.org/koa-views/-/koa-views-8.0.0.tgz#bcba45e07a0e42b61583d0e6998f0da061485cb5"
-  integrity sha512-nvGKdG8yVyomhouwN060SWd7Q9kGYRr322dwN6jvI04hgiDEW9vsPXEje9OEtBgGXxHURe7xOzo3bxQ3DBc1Nw==
-  dependencies:
-    consolidate "^0.16.0"
-    debug "^4.1.0"
-    get-paths "0.0.7"
-    koa-send "^5.0.0"
-    mz "^2.4.0"
-    pretty "^2.0.0"
-    resolve-path "^1.4.0"
-
-koa@2.15.0:
-  version "2.15.0"
-  resolved "https://registry.npmjs.org/koa/-/koa-2.15.0.tgz#d24ae1b0ff378bf12eb3df584ab4204e4c12ac2b"
-  integrity sha512-KEL/vU1knsoUvfP4MC4/GthpQrY/p6dzwaaGI6Rt4NQuFqkw3qrvsdYF5pz3wOfi7IGTvMPHC9aZIcUKYFNxsw==
+koa@2.15.3:
+  version "2.15.3"
+  resolved "https://registry.yarnpkg.com/koa/-/koa-2.15.3.tgz#062809266ee75ce0c75f6510a005b0e38f8c519a"
+  integrity sha512-j/8tY9j5t+GVMLeioLaxweJiKUayFhlGqNTzf2ZGwL0ZCQijd2RLHK0SLW5Tsko8YyyqCZC2cojIb0/s62qTAg==
   dependencies:
     accepts "^1.3.5"
     cache-content-type "^1.0.0"
@@ -4686,9 +4679,9 @@ mute-stream@^2.0.0:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-2.0.0.tgz#a5446fc0c512b71c83c44d908d5c7b7b4c493b2b"
   integrity sha512-WWdIxpyjEn+FhQJQQv9aQAYlHoNVdzIzUySNV1gHUPDSdZJ3yZn7pAAbQcV7B56Mvu881q9FZV+0Vx2xC44VWA==
 
-mz@^2.4.0:
+mz@^2.7.0:
   version "2.7.0"
-  resolved "https://registry.npmjs.org/mz/-/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
+  resolved "https://registry.yarnpkg.com/mz/-/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
   integrity sha512-z81GNO7nnYMEhrGh9LeymoE4+Yr0Wn5McHIZMK5cfQCl+NDX08sCZgUc9/6MHni9IWuFLm1Z3HTCXu2z9fN62Q==
   dependencies:
     any-promise "^1.0.0"
@@ -4710,18 +4703,18 @@ negotiator@0.6.3, negotiator@^0.6.3:
   resolved "https://registry.npmjs.org/negotiator/-/negotiator-0.6.3.tgz#58e323a72fedc0d6f9cd4d31fe49f51479590ccd"
   integrity sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==
 
-nest-koa-adapter@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.npmjs.org/nest-koa-adapter/-/nest-koa-adapter-3.1.0.tgz#c19633b0c4759b7532c5d70c27349947add5d818"
-  integrity sha512-NnnR5NwsMXA14EGnyiZOuVnexOPMb95AuPHSbtUNkrL0fr/0ElWymLsZd03arOS6ezmh1QrB4CLw+8vE48PuLw==
+nest-koa-adapter@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/nest-koa-adapter/-/nest-koa-adapter-4.0.1.tgz#258d6fd8a15cfcbd0bde0e553295f52a19084347"
+  integrity sha512-Xv7dZfu0Hjl4pOrQltsPLC/o0ZLzcYzm0PCgyY/0cpWCupZMpMqR75csF70HMaqNAG/KER1tkvQYH9GHWrf34w==
   dependencies:
-    koa "2.15.0"
+    koa "2.15.3"
     koa-bodyparser "4.4.1"
     koa-router "12.0.1"
   optionalDependencies:
     "@koa/cors" "5.0.0"
+    "@ladjs/koa-views" "9.0.0"
     koa-static "5.0.0"
-    koa-views "8.0.0"
 
 netmask@^2.0.2:
   version "2.0.2"
