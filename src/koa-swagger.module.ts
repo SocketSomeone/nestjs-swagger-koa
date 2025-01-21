@@ -43,7 +43,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		httpAdapter: HttpServer,
 		documentOrFactory: OpenAPIObject | (() => OpenAPIObject),
 		options: {
-			swaggerUiEnabled: boolean;
+			ui: boolean;
 			jsonDocumentUrl: string;
 			yamlDocumentUrl: string;
 			swaggerOptions: SwaggerCustomOptions;
@@ -61,7 +61,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 			return document;
 		};
 
-		if (options.swaggerUiEnabled) {
+		if (options.ui) {
 			KoaSwaggerModule.serveSwaggerUi(
 				finalPath,
 				urlLastSubdirectory,
@@ -257,7 +257,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 			httpAdapter,
 			documentOrFactory,
 			{
-				swaggerUiEnabled,
+				ui: swaggerUiEnabled,
 				jsonDocumentUrl: finalJSONDocumentPath,
 				yamlDocumentUrl: finalYAMLDocumentPath,
 				swaggerOptions: options || {}
