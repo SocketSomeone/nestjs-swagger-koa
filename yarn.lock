@@ -1118,10 +1118,10 @@
   resolved "https://registry.npmjs.org/@microsoft/tsdoc/-/tsdoc-0.15.0.tgz#f29a55df17cb6e87cfbabce33ff6a14a9f85076d"
   integrity sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==
 
-"@nestjs/common@11.0.12":
-  version "11.0.12"
-  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-11.0.12.tgz#0173d11aa3f6ec8f0522a6bca294140fc40e4d7c"
-  integrity sha512-6PXxmDe2iYmb57xacnxzpW1NAxRZ7Gf+acMT7/hmRB/4KpZiFU/cNvLWwgbM2BL5QSzQulOwY6ny5bbKnPpB+A==
+"@nestjs/common@11.0.14":
+  version "11.0.14"
+  resolved "https://registry.yarnpkg.com/@nestjs/common/-/common-11.0.14.tgz#27145dbadb4c73da81d87acb00737495aeb6e30f"
+  integrity sha512-7MKloi0F0xh3S7gSH+reytC3axyhTEn1pJfs8Tp80aXCRYopA5zT/WO4CcmOsqmFt61jnlTFG6CeJ4limz/F7A==
   dependencies:
     uid "2.0.2"
     iterare "1.2.1"
