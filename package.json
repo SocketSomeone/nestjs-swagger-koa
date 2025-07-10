@@ -54,7 +54,7 @@
 		"@favware/npm-deprecate": "2.0.0",
 		"@nestjs/common": "11.1.3",
 		"@nestjs/core": "10.4.15",
-		"@nestjs/swagger": "^8.0.0",
+		"@nestjs/swagger": "^11.2.0",
 		"@nestjs/testing": "^11.1.0",
 		"@release-it/conventional-changelog": "^10.0.0",
 		"@types/jest": "^30.0.0",
