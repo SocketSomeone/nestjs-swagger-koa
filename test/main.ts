@@ -16,4 +16,4 @@ export async function bootstrap() {
 	return app.listen(1322);
 }
 
-bootstrap();
+void bootstrap();
