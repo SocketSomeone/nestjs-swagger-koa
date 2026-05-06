@@ -34,7 +34,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/SocketSomeone/nestjs-swagger-koa"
+		"url": "git+https://github.com/SocketSomeone/nestjs-swagger-koa.git"
 	},
 	"bugs": {
 		"url": "https://github.com/SocketSomeone/nestjs-swagger-koa/issues"
