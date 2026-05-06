@@ -90,13 +90,13 @@ export class KoaSwaggerModule extends SwaggerModule {
 		let swaggerUiHtml: string;
 		let swaggerUiInitJS: string;
 
-		httpAdapter.get(normalizeRelPath(`${finalPath}/swagger-ui-init.js`), (req, res) => {
+		httpAdapter.get(normalizeRelPath(`${finalPath}/swagger-ui-init.js`), async (req, res) => {
 			httpAdapter.setHeader(res, 'Content-Type', 'application/javascript');
 
 			const document = getBuiltDocument();
 
 			if (swaggerOptions.patchDocumentOnRequest) {
-				const documentToSerialize = swaggerOptions.patchDocumentOnRequest(
+				const documentToSerialize = await swaggerOptions.patchDocumentOnRequest(
 					req,
 					res,
 					document
@@ -122,13 +122,13 @@ export class KoaSwaggerModule extends SwaggerModule {
 		try {
 			httpAdapter.get(
 				normalizeRelPath(`${finalPath}/${urlLastSubdirectory}/swagger-ui-init.js`),
-				(req, res) => {
+				async (req, res) => {
 					httpAdapter.setHeader(res, 'Content-Type', 'application/javascript');
 
 					const document = getBuiltDocument();
 
 					if (swaggerOptions.patchDocumentOnRequest) {
-						const documentToSerialize = swaggerOptions.patchDocumentOnRequest(
+						const documentToSerialize = await swaggerOptions.patchDocumentOnRequest(
 							req,
 							res,
 							document
