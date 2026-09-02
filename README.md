@@ -1,6 +1,9 @@
-> [!WARNING]
-> This package is deprecated and is no longer maintained. Existing releases remain available, but no further updates,
-> compatibility fixes, or security fixes are planned.
+## ⚠️ Deprecated
+
+This package is deprecated and is no longer maintained. Existing releases remain available, but no further updates,
+compatibility fixes, or security fixes are planned.
+
+---
 
 <p align="center">
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
