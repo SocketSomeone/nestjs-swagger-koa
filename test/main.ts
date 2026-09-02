@@ -1,8 +1,11 @@
-import { NestFactory } from '@nestjs/core';
-import { KoaAdapter, NestKoaApplication } from 'nest-koa-adapter';
-import { AppModule } from './app.module';
-import { KoaSwaggerModule } from '../src';
+import type { NestKoaApplication } from 'nest-koa-adapter';
+
 import { DocumentBuilder } from '@nestjs/swagger';
+import { KoaAdapter } from 'nest-koa-adapter';
+import { NestFactory } from '@nestjs/core';
+
+import { KoaSwaggerModule } from '../src/index.js';
+import { AppModule } from './app.module.js';
 
 export async function bootstrap() {
 	const app = await NestFactory.create<NestKoaApplication>(AppModule, new KoaAdapter());
