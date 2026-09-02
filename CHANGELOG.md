@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.2](https://github.com/SocketSomeone/nestjs-swagger-koa/compare/1.2.1...1.2.2) (2026-09-02)
+
+### Documentation
+
+* fix deprecation notice ([932be0e](https://github.com/SocketSomeone/nestjs-swagger-koa/commit/932be0ee311c08ee7d841a18bacfd6c0441797f0))
+
 ## [1.2.1](https://github.com/SocketSomeone/nestjs-swagger-koa/compare/1.2.0...1.2.1) (2026-09-02)
 
 * **deps-dev:** bump @nestjs/swagger in the dev-deps group ([#562](https://github.com/SocketSomeone/nestjs-swagger-koa/issues/562)) ([b442839](https://github.com/SocketSomeone/nestjs-swagger-koa/commit/b44283971f70126ebca833302c28bab9680b97f4))
