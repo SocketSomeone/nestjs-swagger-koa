@@ -1,21 +1,31 @@
-import * as jsyaml from 'js-yaml';
-import { OpenAPIObject, SwaggerCustomOptions, SwaggerModule } from '@nestjs/swagger';
-import { HttpServer, INestApplication } from '@nestjs/common';
-import { resolvePath } from '@nestjs/swagger/dist/utils/resolve-path.util';
+import 'reflect-metadata';
+
+import type { OpenAPIObject, SwaggerCustomOptions } from '@nestjs/swagger';
+import type { HttpServer, INestApplication } from '@nestjs/common';
+import type { NestKoaApplication } from 'nest-koa-adapter';
+
 import {
 	buildSwaggerHTML,
 	buildSwaggerInitJS,
 	getSwaggerAssetsAbsoluteFSPath
-} from '@nestjs/swagger/dist/swagger-ui';
-import { NestKoaApplication } from 'nest-koa-adapter';
-import { normalizeRelPath } from '@nestjs/swagger/dist/utils/normalize-rel-path';
-import { getGlobalPrefix } from '@nestjs/swagger/dist/utils/get-global-prefix';
-import { validatePath } from '@nestjs/swagger/dist/utils/validate-path.util';
-import { validateGlobalPrefix } from '@nestjs/swagger/dist/utils/validate-global-prefix.util';
-import { loadPackage } from '@nestjs/common/utils/load-package.util';
+} from '@nestjs/swagger/dist/swagger-ui/swagger-ui.js';
+import { validateGlobalPrefix } from '@nestjs/swagger/dist/utils/validate-global-prefix.util.js';
+import { normalizeRelPath } from '@nestjs/swagger/dist/utils/normalize-rel-path.js';
+import { getGlobalPrefix } from '@nestjs/swagger/dist/utils/get-global-prefix.js';
+import { validatePath } from '@nestjs/swagger/dist/utils/validate-path.util.js';
+import { resolvePath } from '@nestjs/swagger/dist/utils/resolve-path.util.js';
+import { loadPackage } from '@nestjs/common/utils/load-package.util.js';
+import { SwaggerModule } from '@nestjs/swagger';
+import * as jsyaml from 'js-yaml';
 
-export class KoaSwaggerModule extends SwaggerModule {
-	protected static override serveStatic(
+const SwaggerModuleBase = SwaggerModule as {
+	new (): object;
+	createDocument: typeof SwaggerModule.createDocument;
+	loadPluginMetadata: typeof SwaggerModule.loadPluginMetadata;
+};
+
+export class KoaSwaggerModule extends SwaggerModuleBase {
+	protected static serveStatic(
 		finalPath: string,
 		app: INestApplication,
 		customStaticPath?: string
@@ -37,7 +47,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		}
 	}
 
-	protected static override serveDocuments(
+	protected static serveDocuments(
 		finalPath: string,
 		urlLastSubdirectory: string,
 		httpAdapter: HttpServer,
@@ -78,7 +88,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		});
 	}
 
-	protected static override serveSwaggerUi(
+	protected static serveSwaggerUi(
 		finalPath: string,
 		urlLastSubdirectory: string,
 		httpAdapter: HttpServer,
@@ -96,10 +106,8 @@ export class KoaSwaggerModule extends SwaggerModule {
 			const document = getBuiltDocument();
 
 			if (swaggerOptions.patchDocumentOnRequest) {
-				const documentToSerialize = await swaggerOptions.patchDocumentOnRequest(
-					req,
-					res,
-					document
+				const documentToSerialize = await Promise.resolve(
+					swaggerOptions.patchDocumentOnRequest(req, res, document)
 				);
 				const swaggerInitJsPerRequest = buildSwaggerInitJS(
 					documentToSerialize,
@@ -128,10 +136,8 @@ export class KoaSwaggerModule extends SwaggerModule {
 					const document = getBuiltDocument();
 
 					if (swaggerOptions.patchDocumentOnRequest) {
-						const documentToSerialize = await swaggerOptions.patchDocumentOnRequest(
-							req,
-							res,
-							document
+						const documentToSerialize = await Promise.resolve(
+							swaggerOptions.patchDocumentOnRequest(req, res, document)
 						);
 						const swaggerInitJsPerRequest = buildSwaggerInitJS(
 							documentToSerialize,
@@ -147,7 +153,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 					httpAdapter.reply(res, swaggerUiInitJS, 200);
 				}
 			);
-		} catch (err) {
+		} catch {
 			/**
 			 * Error is expected when urlLastSubdirectory === ''
 			 * in that case that route is going to be duplicating the one above
@@ -175,7 +181,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 
 				httpAdapter.reply(res, swaggerUiHtml, 200);
 			});
-		} catch (err) {
+		} catch {
 			/**
 			 * When Fastify adapter is being used with the "ignoreTrailingSlash" configuration option set to "true",
 			 * declaration of the route "finalPath/" will throw an error because of the following conflict:
@@ -185,7 +191,7 @@ export class KoaSwaggerModule extends SwaggerModule {
 		}
 	}
 
-	protected static override serveDefinitions(
+	protected static serveDefinitions(
 		httpAdapter: HttpServer,
 		getBuiltDocument: () => OpenAPIObject,
 		options: {

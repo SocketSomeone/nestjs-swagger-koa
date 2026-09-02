@@ -1,1 +1,1 @@
-export * from './koa-swagger.module';
+export * from './koa-swagger.module.js';
